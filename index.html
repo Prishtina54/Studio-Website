@@ -2,672 +2,268 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Lashes&Co – Online Booking & Preise</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lashes&Co – Medical Aesthetics & Lashes in Spreitenbach. Klare Preise und Online-Terminbuchung mit freien Zeit-Slots." />
+  <title>Lashes&Co – Kosmetikstudio Spreitenbach</title>
+  <meta name="description" content="Lashes&Co – Medical Aesthetics & Lashes in Spreitenbach. Online-Terminbuchung und aktuelle Preise.">
   <style>
     :root {
       --bg: #050509;
-      --bg-soft: rgba(6,6,10,0.97);
       --accent: #f5b3c8;
-      --accent-soft: rgba(245,179,200,0.06);
-      --text: #f5f5f5;
+      --text: #f8f8f8;
       --muted: #b0b0b0;
-      --radius-xl: 24px;
-      --shadow-soft: 0 18px 40px rgba(0,0,0,0.6);
-      --max-width: 1100px;
-      --transition: 0.2s ease-out;
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      --fs-base: 15px;
-      --fs-small: 12px;
-      --fs-xs: 11px;
+      --radius: 22px;
+      --shadow: 0 15px 30px rgba(0,0,0,0.7);
+      --font: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: var(--font-main);
-      background: radial-gradient(circle at top, #151019 0, #050509 38%, #020205 100%);
+      font-family: var(--font);
+      background: #050509;
       color: var(--text);
-      line-height: 1.7;
       display: flex;
       justify-content: center;
-      padding: 32px 16px 40px;
-      font-size: var(--fs-base);
+      padding: 30px 10px 50px;
     }
-
-    .page { width: 100%; max-width: var(--max-width); }
+    .page { width: 100%; max-width: 1100px; }
 
     header {
       position: relative;
+      border-radius: var(--radius);
       overflow: hidden;
-      padding: 26px 22px 22px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(245,179,200,0.22);
-      box-shadow: var(--shadow-soft);
-      background:
-        radial-gradient(circle at top left, rgba(245,179,200,0.16), transparent),
-        rgba(5,5,10,0.98);
-      backdrop-filter: blur(12px);
+      background: rgba(10,10,15,0.9);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow);
+      padding: 24px 22px;
     }
-
-    /* Beispielbild-Hintergrund, wird später ersetzt */
     header::before {
       content: "";
       position: absolute;
-      inset: -8px;
-      background:
-        linear-gradient(to bottom, rgba(2,2,5,0.18), rgba(2,2,5,0.98)),
-        url("https://images.pexels.com/photos/3738345/pexels-photo-3738345.jpeg?auto=compress&cs=tinysrgb&w=1600")
-        center right / cover no-repeat;
-      opacity: 0.35;
-      mix-blend-mode: screen;
+      inset: 0;
+      background: 
+        linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.9)),
+        url("https://images.pexels.com/photos/3738345/pexels-photo-3738345.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+      opacity: 0.5;
       z-index: -1;
     }
 
-    .branding {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-mark {
-      width: 46px;
-      height: 46px;
-      border-radius: 18px;
-      border: 1px solid rgba(245,179,200,0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      backdrop-filter: blur(6px);
-      background: radial-gradient(circle at top, rgba(245,179,200,0.1), rgba(0,0,0,0.96));
-    }
-
     h1 {
-      font-size: 28px;
-      letter-spacing: 0.14em;
+      font-size: 30px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      font-weight: 500;
+      margin-bottom: 4px;
     }
-
     .subline {
-      margin-top: 2px;
-      font-size: var(--fs-small);
-      color: var(--muted);
-    }
-
-    .contact-top {
-      text-align: right;
-      font-size: var(--fs-small);
-      color: var(--muted);
-      max-width: 260px;
-    }
-
-    .contact-top strong {
-      display: block;
       font-size: 13px;
-      color: var(--text);
-      margin-bottom: 2px;
+      color: var(--muted);
     }
-
     .hero-text {
       margin-top: 10px;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
-      max-width: 620px;
+      max-width: 600px;
     }
 
-    .hero-note {
-      font-size: var(--fs-xs);
-      color: #ffbcd4;
-      margin-top: 2px;
-    }
-
-    .cta-row {
-      margin-top: 16px;
+    .socials {
+      margin-top: 20px;
       display: flex;
+      gap: 14px;
       flex-wrap: wrap;
-      gap: 12px;
-      justify-content: flex-start;
     }
-
     .social-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
+      justify-content: center;
+      padding: 12px 26px;
       border-radius: 999px;
-      font-size: 13px;
       text-decoration: none;
-      border: 1px solid rgba(245,179,200,0.9);
-      background: radial-gradient(circle at top, rgba(245,179,200,0.22), rgba(5,5,9,1));
+      font-weight: 600;
       color: var(--accent);
-      box-shadow: 0 14px 32px rgba(0,0,0,0.9);
-      transition: var(--transition);
-      font-weight: 500;
+      border: 1px solid var(--accent);
+      background: rgba(20, 10, 20, 0.8);
+      font-size: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+      transition: 0.2s ease;
     }
-
-    .social-btn span.icon {
-      font-size: 16px;
-    }
-
     .social-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 22px 46px rgba(0,0,0,1);
-      background: radial-gradient(circle at top, rgba(245,179,200,0.3), rgba(5,5,9,1));
+      transform: translateY(-2px);
+      background: var(--accent);
+      color: #111;
     }
 
     main {
-      margin-top: 26px;
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1.2fr);
+      grid-template-columns: 1.5fr 1fr;
       gap: 20px;
+      margin-top: 28px;
     }
-
     section {
-      background: var(--bg-soft);
-      border-radius: var(--radius-xl);
-      padding: 20px 18px 18px;
-      border: 1px solid rgba(255,255,255,0.04);
-      box-shadow: var(--shadow-soft);
+      background: rgba(10,10,15,0.95);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: var(--shadow);
+      padding: 22px;
     }
-
     h2 {
       font-size: 18px;
-      margin-bottom: 8px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
       text-transform: uppercase;
+      letter-spacing: 0.15em;
       color: var(--accent);
-    }
-
-    .hint {
-      font-size: var(--fs-xs);
-      color: var(--muted);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .price-list {
       display: grid;
-      gap: 7px;
-      font-size: 14px;
+      gap: 8px;
     }
-
     .price-item {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
-      padding: 7px 10px;
-      border-radius: 14px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(245,179,200,0.16);
-    }
-
-    .price-label { font-weight: 400; }
-    .price-note { font-size: var(--fs-xs); color: var(--muted); margin-top: 8px; }
-
-    .booking {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(245,179,200,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       font-size: 14px;
     }
 
-    .booking p {
+    .booking label {
       font-size: 13px;
       color: var(--muted);
     }
-
-    .field-group {
-      display: grid;
-      gap: 4px;
-      margin-top: 4px;
-    }
-
-    label {
-      font-size: var(--fs-xs);
-      color: var(--muted);
-    }
-
-    select, input, textarea {
+    .booking input, .booking select, .booking textarea {
       width: 100%;
-      padding: 9px 11px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #050509;
+      padding: 9px 10px;
+      border-radius: 10px;
+      background: #0a0a10;
+      border: 1px solid rgba(255,255,255,0.1);
       color: var(--text);
-      font-size: 13px;
-      outline: none;
-      transition: var(--transition);
+      margin-top: 4px;
+      margin-bottom: 10px;
     }
-
-    select:focus, input:focus, textarea:focus {
+    .booking input:focus, .booking select:focus, .booking textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(245,179,200,0.24);
-    }
-
-    /* Datum-Feld moderner (einfach optisch) */
-    input[type="date"], input[type="time"] {
-      position: relative;
-      padding-right: 32px;
-      font-family: inherit;
-    }
-
-    textarea {
-      min-height: 70px;
-      resize: vertical;
+      outline: none;
     }
 
     .slot-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 6px;
+      gap: 6px;
+    }
+    .slot {
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
       font-size: 12px;
     }
-
-    .slot {
-      padding: 7px 9px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.18);
-      cursor: pointer;
-      user-select: none;
-      background: rgba(5,5,10,0.98);
-      transition: var(--transition);
-    }
-
-    .slot:hover:not(.disabled) {
-      border-color: var(--accent);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-    }
-
-    .slot.disabled {
-      opacity: 0.18;
-      cursor: not-allowed;
-      text-decoration: line-through;
-      box-shadow: none;
-    }
-
-    .slot.active {
-      background: var(--accent);
-      color: #111;
-      font-weight: 600;
-      border-color: transparent;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.95);
-    }
+    .slot:hover:not(.disabled) { border-color: var(--accent); }
+    .slot.disabled { opacity: 0.3; cursor: not-allowed; text-decoration: line-through; }
+    .slot.active { background: var(--accent); color: #111; }
 
     .submit-btn {
-      margin-top: 10px;
-      padding: 11px 16px;
-      border-radius: 999px;
-      border: 0;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
       background: var(--accent);
       color: #111;
-      transition: var(--transition);
+      padding: 10px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
       width: 100%;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.95);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.9);
     }
+    .submit-btn:hover { transform: translateY(-1px); }
 
-    .submit-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 24px 56px rgba(0,0,0,1);
-    }
-
-    .status {
-      margin-top: 6px;
-      font-size: var(--fs-xs);
-      min-height: 16px;
-    }
-
-    .status.ok { color: #6bd68b; }
+    .status { font-size: 12px; margin-top: 8px; min-height: 16px; }
+    .status.ok { color: #70d68b; }
     .status.err { color: #ff6b8b; }
 
-    .opening-hours {
-      margin-top: 10px;
-      display: grid;
-      gap: 2px;
-      font-size: var(--fs-xs);
-      color: var(--muted);
-    }
-
     footer {
-      margin-top: 20px;
-      font-size: 10px;
-      color: var(--muted);
       text-align: center;
+      margin-top: 25px;
+      font-size: 12px;
+      color: var(--muted);
     }
 
-    @media (max-width: 720px) {
-      body { padding: 16px 10px 24px; }
+    @media(max-width: 750px){
       main { grid-template-columns: 1fr; }
-      header { padding: 18px 14px 14px; }
-      section { padding: 16px 12px 14px; }
-      .cta-row { justify-content: flex-start; }
     }
   </style>
 </head>
 <body>
 <div class="page">
   <header>
-    <div class="branding">
-      <div class="logo-wrap">
-        <div class="logo-mark">LC</div>
-        <div>
-          <h1>Lashes&Co</h1>
-          <div class="subline">
-            Medical Aesthetics • Dipl. Med. Kosmetikerin<br />
-            Lash &amp; Brow Artist • Seefeld 21, 8957 Spreitenbach
-          </div>
-        </div>
-      </div>
-      <div class="contact-top">
-        <strong>Lashes&Co – Spreitenbach</strong>
-        Online-Buchung & Social Media Präsenz.
-      </div>
-    </div>
-    <p class="hero-text">
-      Klare Preise. Saubere Arbeit. Live verfügbare Zeiten – nur anklickbar, wenn der Slot wirklich frei ist.
-    </p>
-    <div class="hero-note">
-      Aktuell Beispielbild im Hintergrund – wird durch eigenes Studiobild ersetzt.
-    </div>
-    <div class="cta-row">
-      <a class="social-btn" href="https://www.instagram.com/rozis_med_aesthetics?igsh=MWI4eTg3ZDlvZXhuMw==" target="_blank" rel="noopener">
-        <span class="icon">⌾</span>
-        Instagram Profil ansehen
-      </a>
-      <a class="social-btn" href="https://www.tiktok.com/@rozisthetics?_r=1&_t=ZN-91GSQ4ETJ7D" target="_blank" rel="noopener">
-        <span class="icon">♪</span>
-        TikTok Clips ansehen
-      </a>
+    <h1>Lashes&Co</h1>
+    <div class="subline">Medical Aesthetics • Dipl. Med. Kosmetikerin • Spreitenbach</div>
+    <p class="hero-text">Beispielbild – wird später durch dein echtes Studiobild ersetzt. Klare Preise und einfache Online-Terminbuchung.</p>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/rozis_med_aesthetics" target="_blank" class="social-btn">Instagram ansehen</a>
+      <a href="https://www.tiktok.com/@rozisthetics" target="_blank" class="social-btn">TikTok ansehen</a>
     </div>
   </header>
 
   <main>
-    <!-- PREISE -->
-    <section id="preise">
+    <section>
       <h2>Preise</h2>
-      <p class="hint">Alle Preise in CHF.</p>
-
       <div class="price-list">
-        <div class="price-item"><div class="price-label">Classic 1:1 Neuset (1 h 30)</div><div>80</div></div>
-        <div class="price-item"><div class="price-label">Light Volume Neuset (2 h)</div><div>90</div></div>
-        <div class="price-item"><div class="price-label">Volume Neuset (2 h 30)</div><div>100</div></div>
-        <div class="price-item"><div class="price-label">Mega Volume Neuset (2 h)</div><div>110</div></div>
-
-        <div class="price-item"><div class="price-label">Angel Set (2 h 30)</div><div>–</div></div>
-        <div class="price-item"><div class="price-label">Wispy Set (2 h)</div><div>–</div></div>
-        <div class="price-item"><div class="price-label">Cat Eye (2 h)</div><div>–</div></div>
-
-        <div class="price-item"><div class="price-label">Auffüllen nach 1 Woche</div><div>50</div></div>
-        <div class="price-item"><div class="price-label">Auffüllen nach 2 Wochen</div><div>70</div></div>
-        <div class="price-item"><div class="price-label">Auffüllen nach 3 Wochen</div><div>80</div></div>
-
-        <div class="price-item"><div class="price-label">Wimpernlifting</div><div>75</div></div>
-        <div class="price-item"><div class="price-label">Korean Lashlifting</div><div>85</div></div>
-        <div class="price-item"><div class="price-label">Wimpernentfernen</div><div>25</div></div>
+        <div class="price-item"><span>Classic 1:1 Neuset</span><span>80 CHF</span></div>
+        <div class="price-item"><span>Light Volume Neuset</span><span>90 CHF</span></div>
+        <div class="price-item"><span>Volume Neuset</span><span>100 CHF</span></div>
+        <div class="price-item"><span>Mega Volume Neuset</span><span>110 CHF</span></div>
+        <div class="price-item"><span>Angel Set</span><span>–</span></div>
+        <div class="price-item"><span>Wispy Set</span><span>–</span></div>
+        <div class="price-item"><span>Cat Eye</span><span>–</span></div>
+        <div class="price-item"><span>Auffüllen 1 Woche</span><span>50 CHF</span></div>
+        <div class="price-item"><span>Auffüllen 2 Wochen</span><span>70 CHF</span></div>
+        <div class="price-item"><span>Auffüllen 3 Wochen</span><span>80 CHF</span></div>
+        <div class="price-item"><span>Wimpernlifting</span><span>75 CHF</span></div>
+        <div class="price-item"><span>Korean Lashlifting</span><span>85 CHF</span></div>
+        <div class="price-item"><span>Wimpernentfernen</span><span>25 CHF</span></div>
       </div>
-
-      <p class="price-note">
-        No-Show oder Absage unter 24 Stunden kann mit einer Ausfallgebühr verrechnet werden.
-      </p>
     </section>
 
-    <!-- BUCHUNG -->
-    <section id="booking">
-      <h2>Online-Termin buchen</h2>
-      <div class="booking">
-        <p>1) Behandlung wählen • 2) Datum wählen • 3) freien Slot anklicken • 4) Name & Nummer eintragen • 5) Buchen.</p>
+    <section class="booking">
+      <h2>Online Termin</h2>
+      <label for="service">Behandlung*</label>
+      <select id="service">
+        <option>Bitte wählen</option>
+      </select>
 
-        <div class="field-group">
-          <label for="service">Behandlung*</label>
-          <select id="service" required>
-            <option value="">Bitte wählen</option>
-          </select>
-        </div>
+      <label for="date">Datum*</label>
+      <input type="date" id="date" />
 
-        <div class="field-group">
-          <label for="date">Datum*</label>
-          <input type="date" id="date" required />
-        </div>
+      <label>Zeit wählen</label>
+      <div id="slots" class="slot-grid"></div>
 
-        <div class="field-group">
-          <label>Zeit wählen (nur freie Slots anklickbar)</label>
-          <div id="slots" class="slot-grid"></div>
-        </div>
+      <label for="name">Name*</label>
+      <input type="text" id="name" placeholder="Vorname Nachname" />
 
-        <div class="field-group">
-          <label for="name">Name*</label>
-          <input type="text" id="name" required />
-        </div>
+      <label for="phone">Telefonnummer*</label>
+      <input type="text" id="phone" placeholder="+41 ..." />
 
-        <div class="field-group">
-          <label for="phone">Telefonnummer (für Bestätigung)*</label>
-          <input type="text" id="phone" placeholder="+41 ..." required />
-        </div>
+      <label for="note">Bemerkung</label>
+      <textarea id="note" placeholder="z. B. natürlich, dramatisch, Allergien …"></textarea>
 
-        <div class="field-group">
-          <label for="note">Bemerkung (optional)</label>
-          <textarea id="note" placeholder="z.B. natürlich, dramatisch, Allergien ..."></textarea>
-        </div>
+      <button id="bookBtn" class="submit-btn">Termin anfragen</button>
+      <div id="status" class="status"></div>
 
-        <button id="bookBtn" class="submit-btn">Termin verbindlich anfragen</button>
-        <div id="status" class="status"></div>
-
-        <div class="opening-hours">
-          <strong>Öffnungszeiten:</strong>
-          <div>Montag – Freitag: 19:00 – 23:00</div>
-          <div>Samstag &amp; Sonntag: 09:00 – 23:00</div>
-        </div>
+      <div class="opening-hours" style="margin-top:10px;font-size:12px;color:var(--muted);">
+        <strong>Öffnungszeiten:</strong><br>
+        Mo–Fr: 19:00–23:00<br>
+        Sa–So: 09:00–23:00
       </div>
     </section>
   </main>
 
   <footer>
-    Lashes&Co • Seefeld 21, 8957 Spreitenbach • rozis-med-aesthetics@hotmail.com<br />
-    Online-Buchung • Bestätigung erfolgt persönlich per Nachricht.
+    Lashes&Co • Seefeld 21 • 8957 Spreitenbach<br>
+    <span style="color:var(--accent);">rozis-med-aesthetics@hotmail.com</span>
   </footer>
 </div>
 
 <script>
-  // Später einfach die Web-App-URL der Freundin eintragen (endet auf /exec)
-  const SCRIPT_URL = 'HIER_SCRIPT_URL_EINFÜGEN';
-
-  const services = [
-    { id: 'classic',  name: 'Classic 1:1 Neuset',      duration: 90 },
-    { id: 'lightvol', name: 'Light Volume Neuset',     duration: 120 },
-    { id: 'volume',   name: 'Volume Neuset',           duration: 150 },
-    { id: 'mega',     name: 'Mega Volume Neuset',      duration: 120 },
-    { id: 'angel',    name: 'Angel Set',               duration: 150 },
-    { id: 'wispy',    name: 'Wispy Set',               duration: 120 },
-    { id: 'cateye',   name: 'Cat Eye',                 duration: 120 },
-    { id: 'fill1',    name: 'Auffüllen nach 1 Woche',  duration: 60 },
-    { id: 'fill2',    name: 'Auffüllen nach 2 Wochen', duration: 75 },
-    { id: 'fill3',    name: 'Auffüllen nach 3 Wochen', duration: 75 },
-    { id: 'lashlift', name: 'Wimpernlifting',          duration: 60 },
-    { id: 'korean',   name: 'Korean Lashlifting',      duration: 60 },
-    { id: 'remove',   name: 'Wimpernentfernen',        duration: 30 }
-  ];
-
-  const serviceSelect = document.getElementById('service');
-  const dateInput = document.getElementById('date');
-  const slotsDiv = document.getElementById('slots');
-  const bookBtn = document.getElementById('bookBtn');
-  const statusDiv = document.getElementById('status');
-  let selectedSlot = null;
-
-  services.forEach(s => {
-    const opt = document.createElement('option');
-    opt.value = s.id;
-    opt.textContent = s.name;
-    serviceSelect.appendChild(opt);
-  });
-
-  const today = new Date().toISOString().split('T')[0];
-  dateInput.min = today;
-
-  serviceSelect.addEventListener('change', loadSlots);
-  dateInput.addEventListener('change', loadSlots);
-
-  function loadSlots() {
-    statusDiv.textContent = '';
-    statusDiv.className = 'status';
-    selectedSlot = null;
-    slotsDiv.innerHTML = '';
-
-    const service = getSelectedService();
-    const date = dateInput.value;
-    if (!service || !date) return;
-
-    const day = new Date(date + 'T00:00:00').getDay();
-    let openStart, openEnd;
-
-    if (day === 0 || day === 6) {
-      openStart = '09:00';
-      openEnd   = '23:00';
-    } else {
-      openStart = '19:00';
-      openEnd   = '23:00';
-    }
-
-    fetch(SCRIPT_URL + '?date=' + encodeURIComponent(date))
-      .then(r => r.json())
-      .then(data => {
-        const bookings = (data && data.bookings) || [];
-        renderSlots(openStart, openEnd, service.duration, bookings);
-      })
-      .catch(() => {
-        renderSlots(openStart, openEnd, service.duration, []);
-        statusDiv.textContent = 'Server nicht erreichbar. Slots werden aktuell nicht geprüft.';
-        statusDiv.className = 'status err';
-      });
-  }
-
-  function renderSlots(openStart, openEnd, duration, bookings) {
-    slotsDiv.innerHTML = '';
-    const step = 15;
-    const startMin = toMinutes(openStart);
-    const endMin = toMinutes(openEnd);
-
-    for (let t = startMin; t + duration <= endMin; t += step) {
-      const slotStart = t;
-      const slotEnd = t + duration;
-
-      const overlaps = bookings.some(b => {
-        const bStart = toMinutes(b.start);
-        const bEnd = toMinutes(b.end);
-        return slotStart < bEnd && bStart < slotEnd;
-      });
-
-      const el = document.createElement('div');
-      el.className = 'slot' + (overlaps ? ' disabled' : '');
-      el.textContent = minutesToTime(slotStart);
-
-      if (!overlaps) {
-        el.addEventListener('click', () => {
-          document.querySelectorAll('.slot').forEach(s => s.classList.remove('active'));
-          el.classList.add('active');
-          selectedSlot = el.textContent;
-        });
-      }
-
-      slotsDiv.appendChild(el);
-    }
-
-    if (!slotsDiv.children.length) {
-      slotsDiv.textContent = 'Keine freien Zeiten an diesem Tag.';
-    }
-  }
-
-  function toMinutes(hhmm) {
-    const [h, m] = hhmm.split(':').map(Number);
-    return h * 60 + m;
-  }
-
-  function minutesToTime(min) {
-    const h = String(Math.floor(min / 60)).padStart(2, '0');
-    const m = String(min % 60).padStart(2, '0');
-    return `${h}:${m}`;
-  }
-
-  function getSelectedService() {
-    return services.find(s => s.id === serviceSelect.value);
-  }
-
-  bookBtn.addEventListener('click', () => {
-    statusDiv.textContent = '';
-    statusDiv.className = 'status';
-
-    const service = getSelectedService();
-    const date = dateInput.value;
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const note = document.getElementById('note').value.trim();
-
-    if (!service || !date || !selectedSlot || !name || !phone) {
-      statusDiv.textContent = 'Behandlung, Datum, Uhrzeit, Name und Telefonnummer ausfüllen.';
-      statusDiv.className = 'status err';
-      return;
-    }
-
-    const payload = {
-      date,
-      start: selectedSlot,
-      durationMin: service.duration,
-      name,
-      phone,
-      service: service.name + (note ? ' | ' + note : '')
-    };
-
-    bookBtn.disabled = true;
-
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(r => r.json())
-      .then(res => {
-        if (res.ok) {
-          statusDiv.textContent = 'Termin-Anfrage gespeichert. Bestätigung folgt persönlich.';
-          statusDiv.className = 'status ok';
-          selectedSlot = null;
-          document.getElementById('name').value = '';
-          document.getElementById('phone').value = '';
-          document.getElementById('note').value = '';
-          document.querySelectorAll('.slot').forEach(s => s.classList.remove('active'));
-          loadSlots();
-        } else if (res.error === 'conflict') {
-          statusDiv.textContent = 'Dieser Slot ist bereits vergeben. Bitte andere Zeit wählen.';
-          statusDiv.className = 'status err';
-          loadSlots();
-        } else {
-          statusDiv.textContent = 'Fehler beim Speichern.';
-          statusDiv.className = 'status err';
-        }
-      })
-      .catch(() => {
-        statusDiv.textContent = 'Server nicht erreichbar. Bitte telefonisch oder via Social Media melden.';
-        statusDiv.className = 'status err';
-      })
-      .finally(() => {
-        bookBtn.disabled = false;
-      });
-  });
+const SCRIPT_URL = 'HIER_DEINE_SCRIPT_URL_EINFÜGEN';
 </script>
 </body>
 </html>
