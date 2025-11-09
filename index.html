@@ -12,9 +12,9 @@
       --accent: #f5b3c8;
       --accent-soft: rgba(245,179,200,0.06);
       --text: #f5f5f5;
-      --muted: #a0a0a0;
+      --muted: #9a9a9a;
       --radius-xl: 24px;
-      --shadow-soft: 0 18px 40px rgba(0,0,0,0.55);
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.6);
       --max-width: 1100px;
       --transition: 0.2s ease-out;
       --font-main: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -24,7 +24,7 @@
 
     body {
       font-family: var(--font-main);
-      background: #020206;
+      background: radial-gradient(circle at top, #151019 0, #050509 38%, #020205 100%);
       color: var(--text);
       line-height: 1.6;
       display: flex;
@@ -39,21 +39,25 @@
       overflow: hidden;
       padding: 26px 22px 22px;
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(245,179,200,0.18);
+      border: 1px solid rgba(245,179,200,0.22);
       box-shadow: var(--shadow-soft);
-      background: radial-gradient(circle at top left, rgba(245,179,200,0.18), transparent),
-                  rgba(2,2,6,0.98);
+      background:
+        radial-gradient(circle at top left, rgba(245,179,200,0.14), transparent),
+        rgba(5,5,10,0.98);
+      backdrop-filter: blur(12px);
     }
 
+    /* Ästhetischer Lash-/Beauty-Background, keine Person */
     header::before {
       content: "";
       position: absolute;
-      inset: 0;
+      inset: -8px;
       background:
-        linear-gradient(to bottom, rgba(0,0,0,0.78), rgba(0,0,0,0.97)),
-        url("https://images.pexels.com/photos/3738364/pexels-photo-3738364.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        linear-gradient(to bottom, rgba(2,2,5,0.15), rgba(2,2,5,0.96)),
+        url("https://images.pexels.com/photos/3738345/pexels-photo-3738345.jpeg?auto=compress&cs=tinysrgb&w=1600")
         center right / cover no-repeat;
-      opacity: 0.55;
+      opacity: 0.42;
+      mix-blend-mode: screen;
       z-index: -1;
     }
 
@@ -65,24 +69,30 @@
       flex-wrap: wrap;
     }
 
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .logo-mark {
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       border-radius: 16px;
-      border: 1px solid rgba(245,179,200,0.5);
+      border: 1px solid rgba(245,179,200,0.6);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
-      letter-spacing: 1px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      backdrop-filter: blur(4px);
-      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      background: radial-gradient(circle at top, rgba(245,179,200,0.06), rgba(0,0,0,0.92));
     }
 
     h1 {
       font-size: 26px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 500;
     }
@@ -96,18 +106,50 @@
       text-align: right;
       font-size: 11px;
       color: var(--muted);
-      max-width: 230px;
+      max-width: 260px;
     }
 
     .contact-top strong {
       display: block;
       font-size: 13px;
       color: var(--text);
-      margin-bottom: 2px;
+      margin-bottom: 6px;
+    }
+
+    .social-hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(245,179,200,0.7);
+      background: radial-gradient(circle at top, rgba(245,179,200,0.16), rgba(5,5,9,0.98));
+      color: var(--accent);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.75);
+      transition: var(--transition);
+    }
+
+    .social-btn span.icon {
+      font-size: 13px;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.9);
+      background: radial-gradient(circle at top, rgba(245,179,200,0.22), rgba(5,5,9,1));
     }
 
     .hero-text {
-      margin-top: 8px;
+      margin-top: 10px;
       font-size: 14px;
       color: var(--muted);
       max-width: 520px;
@@ -121,7 +163,7 @@
     }
 
     .btn {
-      padding: 10px 18px;
+      padding: 10px 20px;
       border-radius: 999px;
       font-size: 13px;
       border: 0;
@@ -132,29 +174,28 @@
       text-decoration: none;
       transition: var(--transition);
       white-space: nowrap;
-      backdrop-filter: blur(4px);
     }
 
     .btn-primary {
       background: var(--accent);
-      color: #151515;
+      color: #121212;
       font-weight: 600;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.7);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.85);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.85);
+      box-shadow: 0 20px 44px rgba(0,0,0,1);
     }
 
     .btn-ghost {
-      border: 1px solid rgba(245,179,200,0.5);
+      border: 1px solid rgba(245,179,200,0.6);
       color: var(--accent);
-      background: rgba(3,3,6,0.9);
+      background: rgba(3,3,6,0.96);
     }
 
     .btn-ghost:hover {
-      background: rgba(245,179,200,0.06);
+      background: rgba(245,179,200,0.08);
     }
 
     main {
@@ -168,7 +209,7 @@
       background: var(--bg-soft);
       border-radius: var(--radius-xl);
       padding: 18px 18px 16px;
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.04);
       box-shadow: var(--shadow-soft);
     }
 
@@ -176,7 +217,7 @@
       font-size: 17px;
       margin-bottom: 8px;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
     }
@@ -200,7 +241,7 @@
       padding: 6px 9px;
       border-radius: 14px;
       background: var(--accent-soft);
-      border: 1px solid rgba(245,179,200,0.09);
+      border: 1px solid rgba(245,179,200,0.14);
     }
 
     .price-label { font-weight: 400; }
@@ -217,7 +258,7 @@
       padding: 7px 9px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.08);
-      background: #06060a;
+      background: #050509;
       color: var(--text);
       font-size: 12px;
       outline: none;
@@ -226,7 +267,7 @@
 
     select:focus, input:focus, textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(245,179,200,0.18);
+      box-shadow: 0 0 0 1px rgba(245,179,200,0.2);
     }
 
     textarea { min-height: 60px; resize: vertical; }
@@ -242,15 +283,23 @@
     .slot {
       padding: 6px 8px;
       border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
       cursor: pointer;
       user-select: none;
+      background: rgba(4,4,8,0.96);
+      transition: var(--transition);
+    }
+
+    .slot:hover:not(.disabled) {
+      border-color: var(--accent);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.7);
     }
 
     .slot.disabled {
-      opacity: 0.2;
+      opacity: 0.18;
       cursor: not-allowed;
       text-decoration: line-through;
+      box-shadow: none;
     }
 
     .slot.active {
@@ -258,6 +307,7 @@
       color: #111;
       font-weight: 600;
       border-color: transparent;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.9);
     }
 
     .submit-btn {
@@ -272,11 +322,12 @@
       color: #111;
       transition: var(--transition);
       width: 100%;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.9);
     }
 
     .submit-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 44px rgba(0,0,0,1);
     }
 
     .status {
@@ -295,21 +346,6 @@
       font-size: 11px;
       color: var(--muted);
     }
-
-    .social-links {
-      margin-top: 6px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 10px;
-    }
-
-    .social-links a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .social-links a:hover { text-decoration: underline; }
 
     footer {
       margin-top: 18px;
@@ -330,24 +366,32 @@
   <header>
     <div class="branding">
       <div>
-        <div class="logo-mark">LC</div>
-        <h1>Lashes&Co</h1>
-        <div class="subline">
-          Medical Aesthetics • Dipl. Med. Kosmetikerin<br />
-          Lash &amp; Brow Artist • Seefeld 21, 8957 Spreitenbach
+        <div class="logo-wrap">
+          <div class="logo-mark">LC</div>
+          <div>
+            <h1>Lashes&Co</h1>
+            <div class="subline">
+              Medical Aesthetics • Dipl. Med. Kosmetikerin<br />
+              Lash &amp; Brow Artist • Seefeld 21, 8957 Spreitenbach
+            </div>
+          </div>
         </div>
       </div>
       <div class="contact-top">
-        <strong>Online-Termin ohne Registrierung</strong>
-        Nur Name, Nummer, Behandlung – Rest läuft.
-        <div class="social-links">
-          <a href="https://www.instagram.com/rozis_med_aesthetics?igsh=MWI4eTg3ZDlvZXhuMw==" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.tiktok.com/@rozisthetics?_r=1&_t=ZN-91GSQ4ETJ7D" target="_blank" rel="noopener">TikTok</a>
+        <strong>Buche deinen Slot online</strong>
+        Nur Name, Nummer & Behandlung – keine Registrierung.
+        <div class="social-hero">
+          <a class="social-btn" href="https://www.instagram.com/rozis_med_aesthetics?igsh=MWI4eTg3ZDlvZXhuMw==" target="_blank" rel="noopener">
+            <span class="icon">⌾</span> Instagram
+          </a>
+          <a class="social-btn" href="https://www.tiktok.com/@rozisthetics?_r=1&_t=ZN-91GSQ4ETJ7D" target="_blank" rel="noopener">
+            <span class="icon">♪</span> TikTok
+          </a>
         </div>
       </div>
     </div>
     <p class="hero-text">
-      Klare Preise. Saubere Arbeit. Nur freie Zeiten anklickbar – gebuchte Slots werden automatisch gesperrt.
+      Klare Preise. Saubere Arbeit. Live verfügbare Zeiten: nur anklickbar, wenn der Slot wirklich frei ist.
     </p>
     <div class="cta-row">
       <a href="#booking" class="btn btn-primary">Jetzt Termin buchen</a>
@@ -389,7 +433,7 @@
     <section id="booking">
       <h2>Online-Termin buchen</h2>
       <div class="booking">
-        <p>1) Behandlung wählen • 2) Datum wählen • 3) freie Uhrzeit anklicken • 4) Name & Telefonnummer • 5) Buchen.</p>
+        <p>1) Behandlung wählen • 2) Datum wählen • 3) freien Slot anklicken • 4) Name & Nummer eintragen • 5) buchen.</p>
 
         <div class="field-group">
           <label for="service">Behandlung*</label>
@@ -429,7 +473,7 @@
         <div class="opening-hours">
           <strong>Öffnungszeiten:</strong>
           <div>Montag – Freitag: 19:00 – 23:00</div>
-          <div>Samstag & Sonntag: 09:00 – 23:00</div>
+          <div>Samstag &amp; Sonntag: 09:00 – 23:00</div>
         </div>
       </div>
     </section>
@@ -437,12 +481,11 @@
 
   <footer>
     Lashes&Co • Seefeld 21, 8957 Spreitenbach • rozis-med-aesthetics@hotmail.com<br />
-    Termine werden persönlich bestätigt.
+    Online-Buchung • Bestätigung erfolgt persönlich per Nachricht.
   </footer>
 </div>
 
 <script>
-  // deine echte Script-URL
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvqOecDpRzbgwGGnLPFyaYiuoNluyYImQGtFxK29khJfeP80F53g6QdikqdOs734FUhQ/exec';
 
   const services = [
@@ -468,7 +511,7 @@
   const statusDiv = document.getElementById('status');
   let selectedSlot = null;
 
-  // Service-Dropdown füllen
+  // Dropdown füllen
   services.forEach(s => {
     const opt = document.createElement('option');
     opt.value = s.id;
@@ -476,7 +519,7 @@
     serviceSelect.appendChild(opt);
   });
 
-  // Mindestdatum: heute
+  // Mindestdatum heute
   const today = new Date().toISOString().split('T')[0];
   dateInput.min = today;
 
@@ -496,10 +539,10 @@
     const day = new Date(date + 'T00:00:00').getDay(); // 0=So
 
     let openStart, openEnd;
-    if (day === 0 || day === 6) { // Samstag/Sonntag
+    if (day === 0 || day === 6) { // Sa/So
       openStart = '09:00';
       openEnd   = '23:00';
-    } else { // Montag–Freitag
+    } else { // Mo–Fr
       openStart = '19:00';
       openEnd   = '23:00';
     }
@@ -512,14 +555,14 @@
       })
       .catch(() => {
         renderSlots(openStart, openEnd, service.duration, []);
-        statusDiv.textContent = 'Hinweis: Server nicht erreichbar, Slots werden evtl. nicht geprüft.';
+        statusDiv.textContent = 'Hinweis: Server nicht erreichbar, Slots evtl. nicht geprüft.';
         statusDiv.className = 'status err';
       });
   }
 
   function renderSlots(openStart, openEnd, duration, bookings) {
     slotsDiv.innerHTML = '';
-    const step = 15; // 15-Minuten Raster
+    const step = 15;
     const startMin = toMinutes(openStart);
     const endMin = toMinutes(openEnd);
 
