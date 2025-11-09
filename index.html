@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Lashes&Co – Online Booking & Preise</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lashes&Co – Medical Aesthetics & Lashes in Spreitenbach. Klare Preise und direkte Online-Terminbuchung mit freien Zeit-Slots." />
+  <meta name="description" content="Lashes&Co – Medical Aesthetics & Lashes in Spreitenbach. Klare Preise und Online-Terminbuchung mit freien Zeit-Slots." />
   <style>
     :root {
       --bg: #050509;
@@ -12,12 +12,15 @@
       --accent: #f5b3c8;
       --accent-soft: rgba(245,179,200,0.06);
       --text: #f5f5f5;
-      --muted: #9a9a9a;
+      --muted: #b0b0b0;
       --radius-xl: 24px;
       --shadow-soft: 0 18px 40px rgba(0,0,0,0.6);
       --max-width: 1100px;
       --transition: 0.2s ease-out;
       --font-main: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --fs-base: 15px;
+      --fs-small: 12px;
+      --fs-xs: 11px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,10 +29,11 @@
       font-family: var(--font-main);
       background: radial-gradient(circle at top, #151019 0, #050509 38%, #020205 100%);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
       display: flex;
       justify-content: center;
       padding: 32px 16px 40px;
+      font-size: var(--fs-base);
     }
 
     .page { width: 100%; max-width: var(--max-width); }
@@ -42,21 +46,21 @@
       border: 1px solid rgba(245,179,200,0.22);
       box-shadow: var(--shadow-soft);
       background:
-        radial-gradient(circle at top left, rgba(245,179,200,0.14), transparent),
+        radial-gradient(circle at top left, rgba(245,179,200,0.16), transparent),
         rgba(5,5,10,0.98);
       backdrop-filter: blur(12px);
     }
 
-    /* Ästhetischer Lash-/Beauty-Background, keine Person */
+    /* Beispielbild-Hintergrund, wird später ersetzt */
     header::before {
       content: "";
       position: absolute;
       inset: -8px;
       background:
-        linear-gradient(to bottom, rgba(2,2,5,0.15), rgba(2,2,5,0.96)),
+        linear-gradient(to bottom, rgba(2,2,5,0.18), rgba(2,2,5,0.98)),
         url("https://images.pexels.com/photos/3738345/pexels-photo-3738345.jpeg?auto=compress&cs=tinysrgb&w=1600")
         center right / cover no-repeat;
-      opacity: 0.42;
+      opacity: 0.35;
       mix-blend-mode: screen;
       z-index: -1;
     }
@@ -72,39 +76,40 @@
     .logo-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 16px;
-      border: 1px solid rgba(245,179,200,0.6);
+      width: 46px;
+      height: 46px;
+      border-radius: 18px;
+      border: 1px solid rgba(245,179,200,0.7);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       backdrop-filter: blur(6px);
-      background: radial-gradient(circle at top, rgba(245,179,200,0.06), rgba(0,0,0,0.92));
+      background: radial-gradient(circle at top, rgba(245,179,200,0.1), rgba(0,0,0,0.96));
     }
 
     h1 {
-      font-size: 26px;
-      letter-spacing: 0.12em;
+      font-size: 28px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 500;
     }
 
     .subline {
-      font-size: 13px;
+      margin-top: 2px;
+      font-size: var(--fs-small);
       color: var(--muted);
     }
 
     .contact-top {
       text-align: right;
-      font-size: 11px;
+      font-size: var(--fs-small);
       color: var(--muted);
       max-width: 260px;
     }
@@ -113,186 +118,178 @@
       display: block;
       font-size: 13px;
       color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .social-hero {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 2px;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 10px;
-      text-decoration: none;
-      border: 1px solid rgba(245,179,200,0.7);
-      background: radial-gradient(circle at top, rgba(245,179,200,0.16), rgba(5,5,9,0.98));
-      color: var(--accent);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.75);
-      transition: var(--transition);
-    }
-
-    .social-btn span.icon {
-      font-size: 13px;
-    }
-
-    .social-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.9);
-      background: radial-gradient(circle at top, rgba(245,179,200,0.22), rgba(5,5,9,1));
+      margin-bottom: 2px;
     }
 
     .hero-text {
       margin-top: 10px;
       font-size: 14px;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 620px;
+    }
+
+    .hero-note {
+      font-size: var(--fs-xs);
+      color: #ffbcd4;
+      margin-top: 2px;
     }
 
     .cta-row {
-      margin-top: 14px;
+      margin-top: 16px;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
+      justify-content: flex-start;
     }
 
-    .btn {
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-size: 13px;
-      border: 0;
-      cursor: pointer;
+    .social-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 13px;
       text-decoration: none;
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #121212;
-      font-weight: 600;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 20px 44px rgba(0,0,0,1);
-    }
-
-    .btn-ghost {
-      border: 1px solid rgba(245,179,200,0.6);
+      border: 1px solid rgba(245,179,200,0.9);
+      background: radial-gradient(circle at top, rgba(245,179,200,0.22), rgba(5,5,9,1));
       color: var(--accent);
-      background: rgba(3,3,6,0.96);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.9);
+      transition: var(--transition);
+      font-weight: 500;
     }
 
-    .btn-ghost:hover {
-      background: rgba(245,179,200,0.08);
+    .social-btn span.icon {
+      font-size: 16px;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 46px rgba(0,0,0,1);
+      background: radial-gradient(circle at top, rgba(245,179,200,0.3), rgba(5,5,9,1));
     }
 
     main {
-      margin-top: 24px;
+      margin-top: 26px;
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1.2fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1.2fr);
+      gap: 20px;
     }
 
     section {
       background: var(--bg-soft);
       border-radius: var(--radius-xl);
-      padding: 18px 18px 16px;
+      padding: 20px 18px 18px;
       border: 1px solid rgba(255,255,255,0.04);
       box-shadow: var(--shadow-soft);
     }
 
     h2 {
-      font-size: 17px;
+      font-size: 18px;
       margin-bottom: 8px;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
     }
 
     .hint {
-      font-size: 11px;
+      font-size: var(--fs-xs);
       color: var(--muted);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .price-list {
       display: grid;
       gap: 7px;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .price-item {
       display: flex;
       justify-content: space-between;
       gap: 10px;
-      padding: 6px 9px;
+      padding: 7px 10px;
       border-radius: 14px;
       background: var(--accent-soft);
-      border: 1px solid rgba(245,179,200,0.14);
+      border: 1px solid rgba(245,179,200,0.16);
     }
 
     .price-label { font-weight: 400; }
-    .price-note { font-size: 10px; color: var(--muted); margin-top: 6px; }
+    .price-note { font-size: var(--fs-xs); color: var(--muted); margin-top: 8px; }
 
-    .booking { display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+    .booking {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+    }
 
-    .field-group { display: grid; gap: 4px; margin-top: 4px; }
+    .booking p {
+      font-size: 13px;
+      color: var(--muted);
+    }
 
-    label { font-size: 11px; color: var(--muted); }
+    .field-group {
+      display: grid;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    label {
+      font-size: var(--fs-xs);
+      color: var(--muted);
+    }
 
     select, input, textarea {
       width: 100%;
-      padding: 7px 9px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
+      padding: 9px 11px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
       background: #050509;
       color: var(--text);
-      font-size: 12px;
+      font-size: 13px;
       outline: none;
       transition: var(--transition);
     }
 
     select:focus, input:focus, textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(245,179,200,0.2);
+      box-shadow: 0 0 0 1px rgba(245,179,200,0.24);
     }
 
-    textarea { min-height: 60px; resize: vertical; }
+    /* Datum-Feld moderner (einfach optisch) */
+    input[type="date"], input[type="time"] {
+      position: relative;
+      padding-right: 32px;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
 
     .slot-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 7px;
       margin-top: 6px;
-      font-size: 11px;
+      font-size: 12px;
     }
 
     .slot {
-      padding: 6px 8px;
+      padding: 7px 9px;
       border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.18);
       cursor: pointer;
       user-select: none;
-      background: rgba(4,4,8,0.96);
+      background: rgba(5,5,10,0.98);
       transition: var(--transition);
     }
 
     .slot:hover:not(.disabled) {
       border-color: var(--accent);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.7);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
     }
 
     .slot.disabled {
@@ -307,33 +304,33 @@
       color: #111;
       font-weight: 600;
       border-color: transparent;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.9);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.95);
     }
 
     .submit-btn {
-      margin-top: 8px;
-      padding: 9px 16px;
+      margin-top: 10px;
+      padding: 11px 16px;
       border-radius: 999px;
       border: 0;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       background: var(--accent);
       color: #111;
       transition: var(--transition);
       width: 100%;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.9);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.95);
     }
 
     .submit-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 20px 44px rgba(0,0,0,1);
+      box-shadow: 0 24px 56px rgba(0,0,0,1);
     }
 
     .status {
       margin-top: 6px;
-      font-size: 10px;
-      min-height: 14px;
+      font-size: var(--fs-xs);
+      min-height: 16px;
     }
 
     .status.ok { color: #6bd68b; }
@@ -343,21 +340,23 @@
       margin-top: 10px;
       display: grid;
       gap: 2px;
-      font-size: 11px;
+      font-size: var(--fs-xs);
       color: var(--muted);
     }
 
     footer {
-      margin-top: 18px;
-      font-size: 9px;
+      margin-top: 20px;
+      font-size: 10px;
       color: var(--muted);
       text-align: center;
     }
 
     @media (max-width: 720px) {
+      body { padding: 16px 10px 24px; }
       main { grid-template-columns: 1fr; }
       header { padding: 18px 14px 14px; }
-      section { padding: 14px; }
+      section { padding: 16px 12px 14px; }
+      .cta-row { justify-content: flex-start; }
     }
   </style>
 </head>
@@ -365,42 +364,41 @@
 <div class="page">
   <header>
     <div class="branding">
-      <div>
-        <div class="logo-wrap">
-          <div class="logo-mark">LC</div>
-          <div>
-            <h1>Lashes&Co</h1>
-            <div class="subline">
-              Medical Aesthetics • Dipl. Med. Kosmetikerin<br />
-              Lash &amp; Brow Artist • Seefeld 21, 8957 Spreitenbach
-            </div>
+      <div class="logo-wrap">
+        <div class="logo-mark">LC</div>
+        <div>
+          <h1>Lashes&Co</h1>
+          <div class="subline">
+            Medical Aesthetics • Dipl. Med. Kosmetikerin<br />
+            Lash &amp; Brow Artist • Seefeld 21, 8957 Spreitenbach
           </div>
         </div>
       </div>
       <div class="contact-top">
-        <strong>Buche deinen Slot online</strong>
-        Nur Name, Nummer & Behandlung – keine Registrierung.
-        <div class="social-hero">
-          <a class="social-btn" href="https://www.instagram.com/rozis_med_aesthetics?igsh=MWI4eTg3ZDlvZXhuMw==" target="_blank" rel="noopener">
-            <span class="icon">⌾</span> Instagram
-          </a>
-          <a class="social-btn" href="https://www.tiktok.com/@rozisthetics?_r=1&_t=ZN-91GSQ4ETJ7D" target="_blank" rel="noopener">
-            <span class="icon">♪</span> TikTok
-          </a>
-        </div>
+        <strong>Lashes&Co – Spreitenbach</strong>
+        Online-Buchung & Social Media Präsenz.
       </div>
     </div>
     <p class="hero-text">
-      Klare Preise. Saubere Arbeit. Live verfügbare Zeiten: nur anklickbar, wenn der Slot wirklich frei ist.
+      Klare Preise. Saubere Arbeit. Live verfügbare Zeiten – nur anklickbar, wenn der Slot wirklich frei ist.
     </p>
+    <div class="hero-note">
+      Aktuell Beispielbild im Hintergrund – wird durch eigenes Studiobild ersetzt.
+    </div>
     <div class="cta-row">
-      <a href="#booking" class="btn btn-primary">Jetzt Termin buchen</a>
-      <a href="#preise" class="btn btn-ghost">Preise ansehen</a>
+      <a class="social-btn" href="https://www.instagram.com/rozis_med_aesthetics?igsh=MWI4eTg3ZDlvZXhuMw==" target="_blank" rel="noopener">
+        <span class="icon">⌾</span>
+        Instagram Profil ansehen
+      </a>
+      <a class="social-btn" href="https://www.tiktok.com/@rozisthetics?_r=1&_t=ZN-91GSQ4ETJ7D" target="_blank" rel="noopener">
+        <span class="icon">♪</span>
+        TikTok Clips ansehen
+      </a>
     </div>
   </header>
 
   <main>
-    <!-- Preise -->
+    <!-- PREISE -->
     <section id="preise">
       <h2>Preise</h2>
       <p class="hint">Alle Preise in CHF.</p>
@@ -429,11 +427,11 @@
       </p>
     </section>
 
-    <!-- Buchung -->
+    <!-- BUCHUNG -->
     <section id="booking">
       <h2>Online-Termin buchen</h2>
       <div class="booking">
-        <p>1) Behandlung wählen • 2) Datum wählen • 3) freien Slot anklicken • 4) Name & Nummer eintragen • 5) buchen.</p>
+        <p>1) Behandlung wählen • 2) Datum wählen • 3) freien Slot anklicken • 4) Name & Nummer eintragen • 5) Buchen.</p>
 
         <div class="field-group">
           <label for="service">Behandlung*</label>
@@ -486,7 +484,8 @@
 </div>
 
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvqOecDpRzbgwGGnLPFyaYiuoNluyYImQGtFxK29khJfeP80F53g6QdikqdOs734FUhQ/exec';
+  // Später einfach die Web-App-URL der Freundin eintragen (endet auf /exec)
+  const SCRIPT_URL = 'HIER_SCRIPT_URL_EINFÜGEN';
 
   const services = [
     { id: 'classic',  name: 'Classic 1:1 Neuset',      duration: 90 },
@@ -511,7 +510,6 @@
   const statusDiv = document.getElementById('status');
   let selectedSlot = null;
 
-  // Dropdown füllen
   services.forEach(s => {
     const opt = document.createElement('option');
     opt.value = s.id;
@@ -519,7 +517,6 @@
     serviceSelect.appendChild(opt);
   });
 
-  // Mindestdatum heute
   const today = new Date().toISOString().split('T')[0];
   dateInput.min = today;
 
@@ -536,13 +533,13 @@
     const date = dateInput.value;
     if (!service || !date) return;
 
-    const day = new Date(date + 'T00:00:00').getDay(); // 0=So
-
+    const day = new Date(date + 'T00:00:00').getDay();
     let openStart, openEnd;
-    if (day === 0 || day === 6) { // Sa/So
+
+    if (day === 0 || day === 6) {
       openStart = '09:00';
       openEnd   = '23:00';
-    } else { // Mo–Fr
+    } else {
       openStart = '19:00';
       openEnd   = '23:00';
     }
@@ -555,7 +552,7 @@
       })
       .catch(() => {
         renderSlots(openStart, openEnd, service.duration, []);
-        statusDiv.textContent = 'Hinweis: Server nicht erreichbar, Slots evtl. nicht geprüft.';
+        statusDiv.textContent = 'Server nicht erreichbar. Slots werden aktuell nicht geprüft.';
         statusDiv.className = 'status err';
       });
   }
@@ -659,7 +656,7 @@
           statusDiv.className = 'status err';
           loadSlots();
         } else {
-          statusDiv.textContent = 'Fehler beim Speichern. Bitte später erneut versuchen.';
+          statusDiv.textContent = 'Fehler beim Speichern.';
           statusDiv.className = 'status err';
         }
       })
